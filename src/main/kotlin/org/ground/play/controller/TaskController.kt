@@ -1,6 +1,7 @@
 package org.ground.play.controller
 
 import io.micronaut.http.annotation.Controller
+import io.micronaut.http.annotation.Delete
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Patch
 import io.micronaut.http.annotation.Post
@@ -27,6 +28,11 @@ class TaskController() {
     @Patch
     fun updateTask(task: Task): Task? {
         return taskService.updateTask(task)
+    }
+
+    @Delete
+    fun deleteTask(id: Long): Task {
+        return taskService.deleteTask(id)
     }
 
 }

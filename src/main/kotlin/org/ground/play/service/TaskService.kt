@@ -28,4 +28,8 @@ class TaskService {
                 hours = task.hours
             }
     }
+
+    fun deleteTask(id: Long): Task {
+        return tasks.removeAt( tasks.indexOfFirst { it.id == id } )
+    }
 }
