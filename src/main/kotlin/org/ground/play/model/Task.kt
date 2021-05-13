@@ -1,7 +1,8 @@
 package org.ground.play.model
 
 data class Task(
-    val name: String,
-    val hours: Int,
-    val completed: Boolean = false,
+    var id: Long?,
+    var name: String,
+    var hours: Int,
+    var completed: Boolean = false,
 )

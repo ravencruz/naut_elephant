@@ -2,6 +2,7 @@ package org.ground.play.controller
 
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
+import io.micronaut.http.annotation.Patch
 import io.micronaut.http.annotation.Post
 import org.ground.play.model.Task
 import org.ground.play.service.TaskService
@@ -21,6 +22,11 @@ class TaskController() {
     @Post
     fun createTask(task: Task): Task {
         return taskService.createTask(task)
+    }
+
+    @Patch
+    fun updateTask(task: Task): Task? {
+        return taskService.updateTask(task)
     }
 
 }
