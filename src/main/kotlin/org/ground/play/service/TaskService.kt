@@ -1,6 +1,7 @@
 package org.ground.play.service
 
 import io.micronaut.http.HttpStatus
+import org.ground.play.common.exception.ErrorMessage
 import org.ground.play.common.exception.TaskException
 import org.ground.play.model.Task
 import javax.inject.Singleton
@@ -35,6 +36,7 @@ class TaskService {
         return tasks.find { it.id == id }
             ?.also {
                 tasks.remove(it)
-            } ?: throw TaskException(HttpStatus.BAD_REQUEST, "UserNotFound")
+            }
+            ?: throw TaskException(HttpStatus.BAD_REQUEST, ErrorMessage.USER_NOT_FOUND)
     }
 }
